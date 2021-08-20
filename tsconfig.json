@@ -1,16 +1,31 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-          "@src/*": ["src/*"],
-          "@public/*": ["public/*"]
-        },
         "target": "esnext",
         "moduleResolution": "node",
         "allowJs": true,
         "noEmit": true,
         "strict": true,
+        "sourceMap": true,
         "isolatedModules": true,
         "esModuleInterop": true,
-    }
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": [
+                "src/*"
+            ],
+            "@public/*": [
+                "public/*"
+            ]
+        },
+    },
+    "include": [
+        "./src/*",
+        "./public/*",
+        "public",
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "webpack.config.js"
+    ]
 }
