@@ -47,15 +47,16 @@ export default class Component<T> {
 
   setEvent() {}
 
-  protected addEvent<K extends keyof WindowEventMap>(
+  addEvent<K extends keyof HTMLElementEventMap>(
     eventType: K,
     selector: string,
-    callback: (ev: Event) => void,
+    callback: (ev: HTMLElementEventMap[K]) => void,
   ) {
     const children = [...$all(selector, this.$target)];
     const isTarget = (target: HTMLElement) =>
       children.includes(target) || target.closest(selector);
-    this.$target.addEventListener(eventType, (ev: Event) => {
+
+    this.$target.addEventListener(eventType, (ev :  HTMLElementEventMap[K]) => {
       if (ev.target) {
         if (!isTarget(ev.target as HTMLElement)) return false;
         callback(ev);

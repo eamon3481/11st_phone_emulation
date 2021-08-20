@@ -1,11 +1,31 @@
 import Component from './core/Component';
-import Header from './header/Header';
-import { createNowDate,throttle } from './utils/util';
+import { initialRoutes, historyRouterPush } from './core/router';
+import { $ } from './utils/util';
 
 export default class App extends Component<undefined> {
+  route: HTMLElement | null;
+
+  constructor($target: HTMLElement, $props: undefined) {
+    super($target, $props);
+    this.route = null;
+  }
+  setup() {
+    this.route = null;
+  }
+  setEvent() {
+    this.addEvent('click', '#app', (evt: MouseEvent) => {
+      const target = evt.target as HTMLElement;
+      if (target.getAttribute('route')) {
+        const pathName = target.getAttribute('route');
+        historyRouterPush(pathName, this.$target);
+      }
+    });
+  }
+  mounted() {
+    this.route = $('#route', this.$target);
+    initialRoutes(this.route);
+  }
   template() {
-    return `${this.setComponent<{ type: 'HOME' | 'MEMO' }>(Header, {
-      type: 'HOME',
-    })}`;
+    return '<div id="route"></div>';
   }
 }
