@@ -1,5 +1,5 @@
-import Component from './core/Component';
-import { initialRoutes, historyRouterPush } from './core/router';
+import Component from './lib/Component';
+import { initialRoutes, historyRouterPush } from './lib/router';
 import { $ } from './utils/util';
 
 export default class App extends Component<undefined> {
@@ -23,7 +23,9 @@ export default class App extends Component<undefined> {
   }
   mounted() {
     this.route = $('#route', this.$target);
-    initialRoutes(this.route);
+    console.log(window.location.pathname);
+    initialRoutes(this.route)
+    //historyRouterPush(window.location.pathname, this.route);
   }
   template() {
     return '<div id="route"></div>';

@@ -1,4 +1,4 @@
-import Component from '@src/core/Component';
+import Component from '@src/lib/Component';
 import { createNowDate, throttle } from '@src/utils/util';
 
 export default class Header extends Component<{
