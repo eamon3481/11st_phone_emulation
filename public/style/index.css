@@ -1,0 +1,10 @@
+#app {
+  background-color: aquamarine;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}

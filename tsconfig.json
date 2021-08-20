@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+          "@src/*": ["src/*"],
+          "@public/*": ["public/*"]
+        },
+        "target": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "noEmit": true,
+        "strict": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+    }
+}
