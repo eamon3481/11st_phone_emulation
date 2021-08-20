@@ -4,7 +4,7 @@
   "description": "11가 과제전형 test repository",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watchAll",
     "start": "webpack serve"
   },
   "repository": {
@@ -16,6 +16,12 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eamon3481/11st_phone_emulation/issues"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@src(.*)$": "<rootDir>/src$1",
+      "^@test(.*)$": "<rootDir>/test$1"
+    }
   },
   "homepage": "https://github.com/eamon3481/11st_phone_emulation#readme",
   "devDependencies": {
@@ -29,6 +35,7 @@
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.0.6",
     "style-loader": "^3.2.1",
+    "typescript": "^4.3.5",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0"

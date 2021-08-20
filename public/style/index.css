@@ -1,10 +1,17 @@
+@import './header/index.css';
+* {
+  box-sizing: border-box;
+}
 #app {
-  background-color: aquamarine;
+  background-color: #a6e2d3;
   max-width: 720px;
   margin: 0 auto;
-  height: 100vh;
+  border-radius: 10px;
+  height: 100%;
 }
 
 body {
-  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
 }
