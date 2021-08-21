@@ -5,3 +5,9 @@
   display: flex;
   justify-content: space-around;
 }
+
+.AppButton{
+  padding: 2rem;
+  background-color: burlywood;
+}
+

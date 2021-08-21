@@ -1,4 +1,5 @@
 @import './header/index.css';
+@import './home/index.css';
 * {
   box-sizing: border-box;
 }
@@ -15,3 +16,4 @@ body {
   box-sizing: border-box;
   padding: 30px;
 }
+

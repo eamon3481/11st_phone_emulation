@@ -1,4 +1,4 @@
-import Component from '@src/core/Component';
+import Component from '@src/lib/Component';
 import { createNowDate, throttle } from '@src/utils/util';
 
 export default class Header extends Component<{
@@ -8,11 +8,11 @@ export default class Header extends Component<{
     this.$state = { date: createNowDate(new Date()) };
   }
   mounted() {
-    const test = throttle(
+    const throttleDateFn = throttle(
       (date) => this.setState({ date: createNowDate(date) }),
       500,
     );
-    test(new Date());
+    throttleDateFn(new Date());
   }
   template() {
     const { type } = this.$props;

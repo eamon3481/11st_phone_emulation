@@ -3,4 +3,4 @@ import App from './App.ts';
 import { $ } from './utils/util';
 const root = $('#app');
 
-new App(root);
+new App({ tagName: 'div' }, {}).CreateEl(root);
