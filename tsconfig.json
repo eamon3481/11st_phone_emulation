@@ -23,7 +23,7 @@
         "./public/*",
         "public",
         "src"
-    ],
+, "test/Header.test.js"    ],
     "exclude": [
         "node_modules",
         "webpack.config.js"

@@ -1,33 +1,24 @@
 import Component from './lib/Component';
 import { initialRoutes, historyRouterPush } from './lib/router';
 import { $ } from './utils/util';
+import { createElementType } from '@src/type/componentPropsType';
 
-export default class App extends Component<undefined> {
-  route: HTMLElement | null;
-
-  constructor($target: HTMLElement, $props: undefined) {
-    super($target, $props);
-    this.route = null;
-  }
-  setup() {
-    this.route = null;
-  }
+export default class App extends Component {
+ 
   setEvent() {
     this.addEvent('click', '#app', (evt: MouseEvent) => {
       const target = evt.target as HTMLElement;
-      if (target.getAttribute('route')) {
-        const pathName = target.getAttribute('route');
-        historyRouterPush(pathName, this.$target);
+      console.log(target.closest(".route"))
+      if (target.closest(".route")?.getAttribute('route')) {
+        const pathName = target.closest(".route")?.getAttribute('route');
+        historyRouterPush(pathName, $('#app'));
       }
     });
   }
   mounted() {
-    this.route = $('#route', this.$target);
-    console.log(window.location.pathname);
-    initialRoutes(this.route)
-    //historyRouterPush(window.location.pathname, this.route);
+    initialRoutes(this.$target);
   }
   template() {
-    return '<div id="route"></div>';
+    return '';
   }
 }

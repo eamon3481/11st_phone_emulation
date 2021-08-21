@@ -8,11 +8,11 @@ export default class Header extends Component<{
     this.$state = { date: createNowDate(new Date()) };
   }
   mounted() {
-    const test = throttle(
+    const throttleDateFn = throttle(
       (date) => this.setState({ date: createNowDate(date) }),
       500,
     );
-    test(new Date());
+    throttleDateFn(new Date());
   }
   template() {
     const { type } = this.$props;

@@ -15,7 +15,6 @@ export function initialRoutes(el) {
   renderHTML(el, routes['/']);
   console.log(window);
   window.onpopstate = (e) => {
-    console.log('dd');
     return renderHTML(el, routes[window.location.pathname]);
   };
 }
@@ -31,5 +30,5 @@ export function historyRouterPush(pathName, el) {
 
 // render
 function renderHTML(el, route) {
-  new route(el);
+  new route({ tagName: 'div' }, {}).CreateEl(el);
 }

@@ -1,9 +1,9 @@
-export function $(target: string, root: HTMLElement) {
+export function $(target: string, root?: HTMLElement | Document) {
   if (root === undefined) return document.querySelector<HTMLElement>(target);
   return root.querySelector<HTMLElement>(target);
 }
 
-export function $all(target: string, root: HTMLElement) {
+export function $all(target: string, root?: HTMLElement | Document) {
   if (root === undefined) return document.querySelectorAll<HTMLElement>(target);
   return root.querySelectorAll<HTMLElement>(target);
 }
@@ -18,16 +18,16 @@ export function onEvent(
 
 type createElementType = {
   tagName: keyof HTMLElementTagNameMap;
-  classNames: string[];
-  value: string;
+  classNames?: string[];
+  value?: string;
 };
 export function createElement({
   tagName,
-  classNames = [],
-  value = '',
+  classNames,
+  value ,
 }: createElementType) {
   const element = document.createElement(tagName);
-  element.classList.add(...classNames);
+  if(classNames) element.classList.add(...classNames);
   if (value) element.innerHTML = value;
   return element;
 }
