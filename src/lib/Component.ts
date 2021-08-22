@@ -105,11 +105,10 @@ export default class Component<T = void> {
     selector: string,
     callback: (ev: HTMLElementEventMap[K]) => void,
   ) {
-    console.log(this.$target, 'dd');
     const children = [...$all(selector, this.$target)];
     const isTarget = (target: HTMLElement) =>
       children.includes(target) || target.closest(selector);
-    console.log(this.$target, 'dd');
+
     this.$target.addEventListener(eventType, (ev: HTMLElementEventMap[K]) => {
       if (ev.target) {
         if (!isTarget(ev.target as HTMLElement)) return false;
