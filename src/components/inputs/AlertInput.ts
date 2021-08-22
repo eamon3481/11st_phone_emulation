@@ -21,7 +21,10 @@ export default class AlertInput extends Component<InputType> {
       const hour = ($('#hour', this.$target) as HTMLInputElement).value;
       const min = ($('#min', this.$target) as HTMLInputElement).value;
       let _value = '';
-
+      if(amOrPm === ""){
+        window.alert("오전오후를 입력해주세요")
+        throw new Error("오전오후를 입력해주세요") 
+      }
       if (hour === '12')
         _value =
           amOrPm === '0'

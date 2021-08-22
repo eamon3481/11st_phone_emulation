@@ -19,6 +19,10 @@ export default class MemoInput extends Component<InputType> {
     const handleClick = (e: MouseEvent) => {
       const memos = getState<MemoStateType>(memoState);
       const value = ($('.memo_input', this.$target) as HTMLInputElement).value;
+      if(value === ""){
+        window.alert("메모를 입력해주세요")
+        throw new Error("메모를 입력해주세요") 
+      }
       setTimes([...memos, value]);
       localStorage.setItem('Memo', JSON.stringify([...memos, value]));
       this.$props.setToggle({ toggle: false });
