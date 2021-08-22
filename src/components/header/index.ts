@@ -30,7 +30,6 @@ export default class Header extends Component<HeaderPropsType> {
   }
 
   template() {
-    console.log(this.isApp);
     if (this.isApp)
       return `<header class="header">
     <button class="header_back_button">Back</button>

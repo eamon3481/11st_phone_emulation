@@ -12,7 +12,6 @@ export default class AlertItem extends Component<AlertItemType> {
     const setTime = setState<TimeStateType>(timeState);
     const times = getState<TimeStateType>(timeState);
     const handleDeleteBtn = (e: MouseEvent) => {
-        console.log(times.filter((v, i) => i !== this.$props.keys))
       setTime(times.filter((v, i) => i !== this.$props.keys));
     };
     this.addEvent('click', '.alert_item_delete', handleDeleteBtn);
