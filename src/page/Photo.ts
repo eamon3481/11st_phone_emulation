@@ -1,13 +1,15 @@
 import Component from '@src/lib/Component';
-import Header from '@src/components/header/Header';
+import Header from '@src/components/header';
+import { HeaderPropsType } from '@src/type/componentPropsType';
 
-export default class Photo extends Component<undefined> {
+export default class Photo extends Component {
   template() {
-    return `${this.setComponent<{ type: 'HOME' | 'MEMO' }, Header>(
+    return `${this.setComponent<Header,HeaderPropsType>(
       { tagName: 'div' },
       Header,
-      { type: 'HOME' },
-    3)}
+      {},
+
+    )}
     <div>Photo</div>`;
   }
 }

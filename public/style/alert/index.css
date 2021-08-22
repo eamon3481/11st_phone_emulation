@@ -1,0 +1,10 @@
+.alert_item{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-bottom: 1px solid;
+}
+ul {
+    padding: 0;
+}
