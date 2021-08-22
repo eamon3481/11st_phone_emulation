@@ -1,6 +1,6 @@
 import Component from '@src/lib/Component';
 import { getState } from '@src/lib/Observer';
-import { timeState, TimeStateType } from '@src/store/AlertTime';
+import { timeState, TimeStateType } from '@src/store/AlertTimeStore';
 import { createElementType } from '@src/type/componentPropsType';
 import AlertItem, { AlertItemType } from './AlertItem';
 

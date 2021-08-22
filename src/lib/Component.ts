@@ -2,12 +2,12 @@ import { $, $all, createElement } from '../utils/util';
 import { createElementType } from '@src/type/componentPropsType';
 import { subscribe, unsubscribe } from './Observer';
 
-interface constructorType<T, U> {
+export interface constructorType<T, U> {
   new (createElementConfig: createElementType, $props: T): U;
 }
 
 export default class Component<T = void> {
-  public $state: any;
+  public $state: any
   public $props: T;
   public keys: Array<string>;
   $target: HTMLElement;
@@ -19,9 +19,8 @@ export default class Component<T = void> {
     this.component = {};
     this.keys = [];
   }
-  initState() {
-    return {};
-  }
+
+
   CreateEl($outerTarget: HTMLElement) {
     this.$target = $outerTarget;
     this.init();

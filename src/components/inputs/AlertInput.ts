@@ -1,15 +1,12 @@
 import Component from '@src/lib/Component';
 import { getState, setState } from '@src/lib/Observer';
-import { timeState, TimeStateType } from '@src/store/AlertTime';
-import { createElementType } from '@src/type/componentPropsType';
+import { timeState, TimeStateType } from '@src/store/AlertTimeStore';
+import { InputType, createElementType } from '@src/type/componentPropsType';
 import { $ } from '@src/utils/util';
 
-type AlertInputType = {
-  setToggle: (newState: any) => void;
-};
 
-export default class AlertInput extends Component<AlertInputType> {
-  constructor(createElementConfig: createElementType, $props: AlertInputType) {
+export default class AlertInput extends Component<InputType> {
+  constructor(createElementConfig: createElementType, $props: InputType) {
     super(createElementConfig, $props);
 
     this.keys = [timeState];

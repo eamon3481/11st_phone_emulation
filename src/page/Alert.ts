@@ -1,20 +1,19 @@
 import Component from '@src/lib/Component';
 import Header from '@src/components/header';
 import { HeaderPropsType } from '@src/type/componentPropsType';
-import { historyRouterPush } from '@src/lib/router';
-import { $ } from '@src/utils/util';
+
 import AlertList from '@src/components/alertList';
+import AlertInput from '@src/components/inputs/AlertInput';
 
-export default class Alert extends Component<undefined> {
+
+export default class Alert extends Component {
   template() {
-    const onClick = (e: MouseEvent) => {
-      historyRouterPush('/', $('#app'));
-    };
+ 
 
-    return `${this.setComponent<Header, HeaderPropsType>(
+    return `${this.setComponent<Header, HeaderPropsType<AlertInput>>(
       { tagName: 'header' },
       Header,
-      { onClick },
+      { input : AlertInput },
     )}
     ${this.setComponent<AlertList>({ tagName: 'ul' }, AlertList)}`;
   }
