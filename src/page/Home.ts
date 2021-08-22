@@ -6,8 +6,7 @@ export default class Home extends Component {
   template() {
     return `${this.setComponent<Header,HeaderPropsType>(
       { tagName: 'div' , classNames:['header']},
-      Header,
-      {},
+      Header
     )}
     ${this.setComponent<HomePageBody>(
       { tagName: 'main', classNames: ['home_main'] },

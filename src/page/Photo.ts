@@ -4,11 +4,9 @@ import { HeaderPropsType } from '@src/type/componentPropsType';
 
 export default class Photo extends Component {
   template() {
-    return `${this.setComponent<Header,HeaderPropsType>(
+    return `${this.setComponent<Header, HeaderPropsType>(
       { tagName: 'div' },
-      Header,
-      {},
-
+      Header
     )}
     <div>Photo</div>`;
   }
