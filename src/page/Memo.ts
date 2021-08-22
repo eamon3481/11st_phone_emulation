@@ -10,7 +10,7 @@ export default class Memo extends Component<undefined> {
       { tagName: 'header' },
       Header,
       {
-        input: MemoInput,
+        isApp: true, input: MemoInput,
       },
     )}
     ${this.setComponent<MemoList>({tagName:'ul'},MemoList)}`;

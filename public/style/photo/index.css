@@ -1,0 +1,18 @@
+.photoselector_Item {
+  width: 140px;
+  height: 140px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.photoselector_item_img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photoselector {
+  display: flex;
+  overflow-x: scroll;
+}

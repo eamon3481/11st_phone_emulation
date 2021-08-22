@@ -30,7 +30,7 @@ export default class Header extends Component<HeaderPropsType> {
   }
 
   template() {
-    if (this.isApp)
+    if (this.$props.input)
       return `<header class="header">
     <button class="header_back_button">Back</button>
     ${this.setComponent({ tagName: 'div' }, HeaderTimer)}
@@ -44,6 +44,11 @@ export default class Header extends Component<HeaderPropsType> {
         : ''
     }
     `;
+    if (this.$props.isApp)
+      return `
+    <button class="header_back_button">Back</button>
+    ${this.setComponent({ tagName: 'div' }, HeaderTimer)}
+    <div></div>`;
 
     return `${this.setComponent({ tagName: 'div' }, HeaderTimer)} `;
   }

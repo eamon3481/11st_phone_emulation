@@ -13,7 +13,7 @@ export default class Alert extends Component {
     return `${this.setComponent<Header, HeaderPropsType<AlertInput>>(
       { tagName: 'header' },
       Header,
-      { input : AlertInput },
+      { isApp: true , input : AlertInput },
     )}
     ${this.setComponent<AlertList>({ tagName: 'ul' }, AlertList)}`;
   }
