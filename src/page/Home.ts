@@ -5,9 +5,10 @@ import { HeaderPropsType } from '@src/type/componentPropsType';
 export default class Home extends Component {
   template() {
     return `${this.setComponent<Header,HeaderPropsType>(
-      { tagName: 'div' , classNames:['header']},
+      { tagName: 'header' , classNames:['header']},
       Header
-    )}
+    ,{isApp : false}
+      )}
     ${this.setComponent<HomePageBody>(
       { tagName: 'main', classNames: ['home_main'] },
       HomePageBody,

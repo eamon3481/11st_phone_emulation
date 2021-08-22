@@ -13,7 +13,8 @@ export type InputType = {
 };
 
 export type HeaderPropsType<T = any> = {
-  input: constructorType<InputType, T> ;
+  isApp: Boolean;
+  input?: constructorType<InputType, T>;
 };
 
 export type createElementType = {
