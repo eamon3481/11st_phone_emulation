@@ -1,3 +1,6 @@
+import { getState, setState } from '@src/lib/Observer';
+import { timeState, TimeStateType } from '@src/store/AlertTimeStore';
+
 export function $(target: string, root?: HTMLElement | Document) {
   if (root === undefined) return document.querySelector<HTMLElement>(target);
   return root.querySelector<HTMLElement>(target);
@@ -24,15 +27,28 @@ type createElementType = {
 export function createElement({
   tagName,
   classNames,
-  value ,
+  value,
 }: createElementType) {
   const element = document.createElement(tagName);
-  if(classNames) element.classList.add(...classNames);
+  if (classNames) element.classList.add(...classNames);
   if (value) element.innerHTML = value;
   return element;
 }
 
 export function createNowDate(date: Date) {
+  const times = getState<TimeStateType>(timeState);
+  const setTimes = setState<TimeStateType>(timeState);
+  const switchTenString = (num: number) =>
+    num < 10 ? '0' + `${num}` : `${num}`;
+  const alarm =
+    switchTenString(date.getHours()) + ':' + switchTenString(date.getMinutes());
+ 
+  if (times.indexOf(alarm) !== -1) {
+    window.alert('알람 : ' + alarm);
+    const editedTimeState = times.filter((v) => v !== alarm);
+    setTimes(editedTimeState);
+    localStorage.setItem('alertTime', JSON.stringify(editedTimeState));
+  }
   return (
     date.getFullYear() +
     '년 ' +
@@ -49,35 +65,32 @@ export function createNowDate(date: Date) {
   );
 }
 
-
 export function debounce<F extends (...args: any) => any>(
   func: F,
-  delay: number
- ) {
+  delay: number,
+) {
   let timeout: NodeJS.Timeout;
   const debounced = (...args: any) => {
-   clearTimeout(timeout);
-   timeout = setTimeout(() => func(...args), delay);
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
   };
- 
+
   return debounced as (...args: Parameters<F>) => ReturnType<F>;
- }
- 
- export function throttle<F extends (...args: any) => any>(
+}
+
+export function throttle<F extends (...args: any) => any>(
   func: F,
-  delay: number
- ) {
+  delay: number,
+) {
   let timeout: NodeJS.Timeout | null;
   const throttled = (...args: any) => {
-   if (!timeout) {
-    timeout = setTimeout(() => {
-     func(...args);
-     timeout = null;
-    }, delay);
-   }
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        func(...args);
+        timeout = null;
+      }, delay);
+    }
   };
- 
+
   return throttled as (...args: Parameters<F>) => ReturnType<F>;
- }
-
-
+}
