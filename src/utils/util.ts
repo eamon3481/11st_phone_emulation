@@ -35,11 +35,13 @@ export function createElement({
   return element;
 }
 
+export const switchTenString = (num: number) =>
+num < 10 ? '0' + `${num}` : `${num}`;
+
 export function createNowDate(date: Date) {
   const times = getState<TimeStateType>(timeState);
   const setTimes = setState<TimeStateType>(timeState);
-  const switchTenString = (num: number) =>
-    num < 10 ? '0' + `${num}` : `${num}`;
+ 
   const alarm =
     switchTenString(date.getHours()) + ':' + switchTenString(date.getMinutes());
  
@@ -48,6 +50,7 @@ export function createNowDate(date: Date) {
     const editedTimeState = times.filter((v) => v !== alarm);
     setTimes(editedTimeState);
     localStorage.setItem('alertTime', JSON.stringify(editedTimeState));
+    
   }
   return (
     date.getFullYear() +
