@@ -11,6 +11,8 @@ export default class PhotoView extends Component {
     this.subscribe();
   }
   template() {
-    return `<img class="photoView_img" src="${getState<string>(imgState)}"/>`;
+    if (getState<string>(imgState))
+      return `<img class="photoView_img" src="${getState<string>(imgState)}"/>`;
+    return '';
   }
 }

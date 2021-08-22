@@ -12,7 +12,7 @@ export default class PhotoSelector extends Component {
     return `${this.$state.imgUrlRange
       .map((v: number, i: number) =>
         this.setComponent<PhotoSelectorItem, PhotoItemType>(
-          { tagName: 'div', classNames: ['photoselector_Item'] },
+          { tagName: 'div', classNames: ['photo_selector_Item'] },
           PhotoSelectorItem,
           { imgUrl: `img/${i + 1}.jpg` },
           i,

@@ -24,3 +24,10 @@ ul {
 .memo_focus {
   -webkit-line-clamp: initial;
 }
+
+.input {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: wheat;
+}

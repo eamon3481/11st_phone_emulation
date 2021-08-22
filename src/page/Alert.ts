@@ -2,7 +2,7 @@ import Component from '@src/lib/Component';
 import Header from '@src/components/header';
 import { HeaderPropsType } from '@src/type/componentPropsType';
 
-import AlertList from '@src/components/alertList';
+import AlertList from '@src/components/alert-list';
 import AlertInput from '@src/components/inputs/AlertInput';
 
 

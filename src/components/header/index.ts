@@ -38,9 +38,13 @@ export default class Header extends Component<HeaderPropsType> {
     </header>
     ${
       this.$state.toggle
-        ? this.setComponent({ tagName: 'div' }, this.$props.input, {
-            setToggle: this.setState.bind(this),
-          })
+        ? this.setComponent(
+            { tagName: 'div', classNames: ['input'] },
+            this.$props.input,
+            {
+              setToggle: this.setState.bind(this),
+            },
+          )
         : ''
     }
     `;

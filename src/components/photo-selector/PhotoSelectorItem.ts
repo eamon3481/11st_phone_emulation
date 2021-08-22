@@ -20,12 +20,12 @@ export default class PhotoSelectorItem extends Component<PhotoItemType> {
       const imgUrl = (e.target as HTMLImageElement).getAttribute('src');
       if (imgUrl) setImgUrl(imgUrl);
     };
-    this.addEvent('click', '.photoselector_item_img', handlePhotoClick);
+    this.addEvent('click', '.photo_selector_item_img', handlePhotoClick);
   }
 
   template() {
     if (this.$props.imgUrl === getState<string>(imgState))
-      return `<img class="photoselector_item_img photoselector_select" src="${this.$props.imgUrl}"/>`;
-    return `<img class="photoselector_item_img" src="${this.$props.imgUrl}"/>`;
+      return `<img class="photo_selector_item_img photo_selector_select" src="${this.$props.imgUrl}"/>`;
+    return `<img class="photo_selector_item_img" src="${this.$props.imgUrl}"/>`;
   }
 }
