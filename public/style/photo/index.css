@@ -16,3 +16,21 @@
   display: flex;
   overflow-x: scroll;
 }
+
+.photoView {
+  height: 70%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoView_img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.photoselector_select {
+  border: 5px royalblue solid;
+}

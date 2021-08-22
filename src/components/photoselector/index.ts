@@ -1,5 +1,5 @@
 import Component from '@src/lib/Component';
-import PhotoSelectorItem, { PhotoSelectorItemType } from './PhotoSelectorItem';
+import PhotoSelectorItem, { PhotoItemType } from './PhotoSelectorItem';
 
 export default class PhotoSelector extends Component {
   setup() {
@@ -11,7 +11,7 @@ export default class PhotoSelector extends Component {
   template() {
     return `${this.$state.imgUrlRange
       .map((v: number, i: number) =>
-        this.setComponent<PhotoSelectorItem, PhotoSelectorItemType>(
+        this.setComponent<PhotoSelectorItem, PhotoItemType>(
           { tagName: 'div', classNames: ['photoselector_Item'] },
           PhotoSelectorItem,
           { imgUrl: `img/${i + 1}.jpg` },
