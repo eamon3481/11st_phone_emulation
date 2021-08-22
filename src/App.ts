@@ -8,7 +8,6 @@ export default class App extends Component {
   setEvent() {
     this.addEvent('click', '#app', (evt: MouseEvent) => {
       const target = evt.target as HTMLElement;
-      console.log(target.closest(".route"))
       if (target.closest(".route")?.getAttribute('route')) {
         const pathName = target.closest(".route")?.getAttribute('route');
         historyRouterPush(pathName, $('#app'));

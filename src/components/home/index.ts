@@ -4,9 +4,9 @@ import {AppButtonProps} from '@src/type/componentPropsType'
 export default class HomePageBody extends Component {
   template() {
     return `
-      ${this.setComponent<AppButtonProps, AppButton>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '알람', route: '/alert' }, 0)}
-      ${this.setComponent<AppButtonProps, AppButton>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '메모', route: '/memo' }, 1)}
-      ${this.setComponent<AppButtonProps, AppButton>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '사진', route: '/photo' }, 2)}
+      ${this.setComponent<AppButton, AppButtonProps>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '알람', route: '/alert' }, 0)}
+      ${this.setComponent<AppButton, AppButtonProps>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '메모', route: '/memo' }, 1)}
+      ${this.setComponent<AppButton, AppButtonProps>({ tagName: 'div' ,classNames: [ 'home_itemBox']},AppButton, { text: '사진', route: '/photo' }, 2)}
       <div class="home_itemBox"></div>
       <div class="home_itemBox"></div>
       <div class="home_itemBox"></div>
