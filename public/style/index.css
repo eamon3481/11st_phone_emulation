@@ -2,6 +2,7 @@
 @import './home/index.css';
 @import './alert/index.css';
 @import './photo/index.css';
+@import './error/index.css';
 
 * {
   box-sizing: border-box;

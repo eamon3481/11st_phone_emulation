@@ -1,0 +1,16 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.error_img {
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.home{
+    margin-top: 2rem;
+    font-size: 2rem;
+}
