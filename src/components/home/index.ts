@@ -18,11 +18,12 @@ export default class HomePageBody extends Component {
     const position = getState<PositionStateType>(positionState);
     const setPosition = setState<PositionStateType>(positionState);
     let dragged: { target: 'alert' | 'photo' | 'memo' };
+    const textSwitch = (text: string): 'alert' | 'photo' | 'memo' =>
+      text === '알람' ? 'alert' : text === '사진' ? 'photo' : 'memo';
 
     const handleDragStart = (e: MouseEvent) => {
       const text = (e.target as HTMLElement).innerText;
-      const textSwitch = (text: string): 'alert' | 'photo' | 'memo' =>
-        text === '알람' ? 'alert' : text === '사진' ? 'photo' : 'memo';
+
       const target = textSwitch(text);
       dragged = { target: textSwitch(text) };
     };
@@ -37,10 +38,17 @@ export default class HomePageBody extends Component {
     };
 
     const handleDrop = (e: DragEvent) => {
-      (e.target as HTMLElement).removeAttribute('style');
-      const idx = (e.target as HTMLElement).classList[1];
-      if (isNaN(+idx.slice(4))) {
+      const target = e.target as HTMLElement;
+      target.removeAttribute('style');
+
+      const _target = target.closest('.home_itemBox');
+      if (!_target) return;
+
+      const idx = _target.classList[1];
+      if (target.classList[0] === 'AppButton') {
+        position[textSwitch(target.innerText)] = position[dragged.target];
       }
+
       position[dragged.target] = +idx.slice(4);
 
       localStorage.setItem('Position', JSON.stringify(position));
