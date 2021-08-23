@@ -1,11 +1,16 @@
 import Component from '@src/lib/Component';
+import { getState, setState } from '@src/lib/Observer';
+import { createElementType } from '@src/lib/componentLibType';
+import { positionState, PositionStateType } from '@src/store/PositionStore';
+
+
 import AppButton from './AppButton';
 import {
-  AppButtonProps,
-  createElementType,
+AppButtonProps
 } from '@src/type/componentPropsType';
-import { positionState, PositionStateType } from '@src/store/PositionStore';
-import { getState, setState } from '@src/lib/Observer';
+
+
+
 export default class HomePageBody extends Component {
   constructor(createElementConfig: createElementType) {
     super(createElementConfig);

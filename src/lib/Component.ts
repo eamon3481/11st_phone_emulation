@@ -1,13 +1,11 @@
 import { $, $all, createElement } from '../utils/util';
-import { createElementType } from '@src/type/componentPropsType';
-import { subscribe, unsubscribe } from './Observer';
+import { subscribe } from './Observer';
 
-export interface constructorType<T, U> {
-  new (createElementConfig: createElementType, $props: T): U;
-}
+
+import { createElementType, constructorType } from './componentLibType';
 
 export default class Component<T = void> {
-  public $state: any
+  public $state: any;
   public $props: T;
   public keys: Array<string>;
   $target: HTMLElement;
@@ -20,7 +18,6 @@ export default class Component<T = void> {
     this.keys = [];
   }
 
-
   CreateEl($outerTarget: HTMLElement) {
     this.$target = $outerTarget;
     this.init();
@@ -30,19 +27,12 @@ export default class Component<T = void> {
     this.setEvent();
     this.render();
   }
-  // subscribedRender(){
-  //   this.unsubscribe(); //하위 컴포넌트 구독 해제
-  //   this.render(); //하위 컴포넌트 재생성
-  // }
+
   subscribe() {
     this.keys.forEach((key) => subscribe(key, this.render.bind(this)));
   }
 
-  // unsubscribe(isCurrentComp = true): void {
-  //   if (!isCurrentComp && this.keys.length) {
-  //     this.keys.forEach((key) => unsubscribe(key, this.reRender));
-  //   }
-  // }
+
 
   setup() {}
   mounted() {}

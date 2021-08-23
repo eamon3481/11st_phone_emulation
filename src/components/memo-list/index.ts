@@ -1,8 +1,9 @@
 import Component from '@src/lib/Component';
+import { createElementType } from '@src/lib/componentLibType';
+
 import { getState } from '@src/lib/Observer';
 import { memoState, MemoStateType } from '@src/store/MemoStore';
 
-import { createElementType } from '@src/type/componentPropsType';
 import MemoItem, { MemoItemType } from './MemoItem';
 
 

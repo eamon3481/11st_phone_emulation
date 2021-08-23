@@ -1,8 +1,12 @@
 import Component from '@src/lib/Component';
+import { createElementType } from '@src/lib/componentLibType';
+
 import { getState, setState } from '@src/lib/Observer';
 import { memoState, MemoStateType } from '@src/store/MemoStore';
-import { InputType, createElementType } from '@src/type/componentPropsType';
+
 import { $ } from '@src/utils/util';
+
+import { InputType } from '@src/type/componentPropsType';
 
 
 export default class MemoInput extends Component<InputType> {
