@@ -15,10 +15,8 @@ describe('createNowDate', () => {
     th();
     setTimeout(() => {
       expect(callback).toBeCalled();
-     
-    }, 500)
-   
+    }, 500);
+
     jest.runAllTimers();
   });
 });
-

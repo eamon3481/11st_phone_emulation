@@ -22,8 +22,9 @@
         "./src/*",
         "./public/*",
         "public",
-        "src"
-, "test/Header.test.js"    ],
+        "src",
+        "__test__",
+    ],
     "exclude": [
         "node_modules",
         "webpack.config.js"

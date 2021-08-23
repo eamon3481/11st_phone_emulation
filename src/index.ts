@@ -1,7 +1,7 @@
 import App from './App';
 import { $ } from './utils/util';
 import '@public/style/index.css';
-import ErrorPage from './Error';
+
 import { historyRouterPush } from './lib/router';
 
 const root = $('#app');

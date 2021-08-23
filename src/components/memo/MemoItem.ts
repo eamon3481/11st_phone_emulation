@@ -1,6 +1,6 @@
 import Component from '@src/lib/Component';
 import { getState, setState } from '@src/lib/Observer';
-import { memoFocusState, memoState, MemoStateType } from '@src/store/MemoStore';
+import { memoFocusState  } from '@src/store/MemoStore';
 
 export type MemoItemType = {
   memo: string;
