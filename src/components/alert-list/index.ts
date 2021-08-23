@@ -1,7 +1,9 @@
 import Component from '@src/lib/Component';
+import { createElementType } from '@src/lib/componentLibType';
+
 import { getState } from '@src/lib/Observer';
 import { timeState, TimeStateType } from '@src/store/AlertTimeStore';
-import { createElementType } from '@src/type/componentPropsType';
+
 import AlertItem, { AlertItemType } from './AlertItem';
 
 export default class AlertList extends Component {
