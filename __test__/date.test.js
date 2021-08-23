@@ -1,5 +1,5 @@
 import { createNowDate, throttle } from '@src/utils/util';
-
+import 'jest-localstorage-mock';
 jest.useFakeTimers();
 
 describe('createNowDate', () => {
