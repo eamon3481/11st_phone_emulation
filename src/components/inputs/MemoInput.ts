@@ -20,7 +20,8 @@ export default class MemoInput extends Component<InputType> {
   setEvent() {
     const setTimes = setState<MemoStateType>(memoState);
 
-    const handleClick = (e: MouseEvent) => {
+    const handleSubmit = (e: KeyboardEvent | MouseEvent ) => {
+      if((e as KeyboardEvent ).key !== "Enter" && (e as KeyboardEvent ).key !== undefined) return
       const memos = getState<MemoStateType>(memoState);
       const value = ($('.memo_input', this.$target) as HTMLInputElement).value;
       if(value === ""){
@@ -32,7 +33,8 @@ export default class MemoInput extends Component<InputType> {
       this.$props.setToggle({ toggle: false });
     };
 
-    this.addEvent('click', '.memo_button', handleClick);
+    this.addEvent('click', '.memo_button', handleSubmit);
+    this.addEvent('keypress', '.memo_input', handleSubmit);
   }
   template() {
     return `

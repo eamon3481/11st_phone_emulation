@@ -8,3 +8,9 @@ export const memoState = initState<string[]>({
   key: 'memoState',
   defaultValue: storageMemo ? JSON.parse(storageMemo) : [],
 });
+
+
+export const memoFocusState = initState<number>({
+  key: 'memoFocusState',
+  defaultValue: -1,
+});

@@ -1,18 +1,19 @@
 import Component from '@src/lib/Component';
-import { getState } from '@src/lib/Observer';
-import { memoState, MemoStateType } from '@src/store/MemoStore';
+import { getState, setState } from '@src/lib/Observer';
+import { memoFocusState, memoState, MemoStateType } from '@src/store/MemoStore';
 
 export type MemoItemType = {
   memo: string;
+  key: number;
 };
 
 export default class MemoItem extends Component<MemoItemType> {
   setEvent() {
-    const memos = getState<MemoStateType>(memoState);
+    const setFocus = setState<number>(memoFocusState);
+    const focus = getState<number>(memoFocusState);
     const handleFocusBtn = (e: MouseEvent) => {
-      if (this.$target.classList[1] === 'memo_focus')
-        this.$target.classList.remove('memo_focus');
-      else this.$target.classList.add('memo_focus');
+      if (focus === this.$props.key) setFocus(-1);
+      else setFocus(this.$props.key);
     };
     this.addEvent('click', '.memo_item', handleFocusBtn);
   }
