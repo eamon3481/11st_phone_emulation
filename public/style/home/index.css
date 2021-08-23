@@ -6,8 +6,8 @@
 
 .AppButton {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   background-color: burlywood;
   border: none;
@@ -16,6 +16,6 @@
 }
 .home_itemBox {
   margin: 40px auto;
-  width: 65px;
-  height: 72px;
+  width: 91px;
+  height: 91px;
 }
