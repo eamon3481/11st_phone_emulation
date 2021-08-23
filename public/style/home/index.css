@@ -4,7 +4,6 @@
   height: 90%;
 }
 
-
 .AppButton {
   display: flex;
   width: 100%;
@@ -14,9 +13,10 @@
   border: none;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
 }
 .home_itemBox {
-  margin: 40px auto;
-  width: 91px;
-  height: 91px;
+  margin: 30px auto;
+  width: 110px;
+  height: 110px;
 }

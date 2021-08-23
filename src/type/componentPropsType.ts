@@ -1,4 +1,5 @@
-import { constructorType } from '@src/lib/Component';
+import { constructorType } from '@src/lib/componentLibType';
+
 
 type textType = '알람' | '메모' | '사진';
 type routerType = '/alert' | '/memo' | '/photo';
@@ -17,8 +18,3 @@ export type HeaderPropsType<T = any> = {
   input?: constructorType<InputType, T>;
 };
 
-export type createElementType = {
-  tagName: keyof HTMLElementTagNameMap;
-  classNames?: string[];
-  value?: string;
-};

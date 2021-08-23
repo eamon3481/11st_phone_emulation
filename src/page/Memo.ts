@@ -4,7 +4,7 @@ import { HeaderPropsType } from '@src/type/componentPropsType';
 import MemoInput from '@src/components/inputs/MemoInput';
 import MemoList from '@src/components/memo-list';
 
-export default class Memo extends Component<undefined> {
+export default class Memo extends Component {
   template() {
     return `${this.setComponent<Header, HeaderPropsType>(
       { tagName: 'header' },
