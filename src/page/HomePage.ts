@@ -1,8 +1,10 @@
 import Component from '@src/lib/Component';
-import Header from '@src/components/header';
-import HomePageBody from '@src/components/home';
-import { HeaderPropsType } from '@src/type/componentPropsType';
+
+import Header,  { HeaderPropsType } from '@src/components/header/Header';
+import HomePageBody from '@src/components/home/HomeAppList';
+
 export default class Home extends Component {
+  
   template() {
     return `${this.setComponent<Header,HeaderPropsType>(
       { tagName: 'header' , classNames:['header']},

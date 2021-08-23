@@ -1,5 +1,5 @@
-import Component from '@src/lib/Component';
-import { createElementType } from '@src/lib/componentLibType';
+import Component ,{ createElementType }from '@src/lib/Component';
+
 
 import { getState } from '@src/lib/Observer';
 import { memoFocusState, memoState, MemoStateType } from '@src/store/MemoStore';

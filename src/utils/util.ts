@@ -11,19 +11,12 @@ export function $all(target: string, root?: HTMLElement | Document) {
   return root.querySelectorAll<HTMLElement>(target);
 }
 
-export function onEvent(
-  target: HTMLElement,
-  eventType: keyof WindowEventMap,
-  fn: () => void,
-) {
-  target.addEventListener(eventType, fn);
-}
-
 type createElementType = {
   tagName: keyof HTMLElementTagNameMap;
   classNames?: string[];
   value?: string;
 };
+
 export function createElement({
   tagName,
   classNames,

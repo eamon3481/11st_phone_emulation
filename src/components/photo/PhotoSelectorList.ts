@@ -1,4 +1,5 @@
 import Component from '@src/lib/Component';
+
 import PhotoSelectorItem, { PhotoItemType } from './PhotoSelectorItem';
 
 export default class PhotoSelector extends Component {

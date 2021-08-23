@@ -1,10 +1,10 @@
-import Alert from '@src/page/Alert';
-import Home from '@src/page/Home';
-import Memo from '@src/page/Memo';
-import Photo from '@src/page/Photo';
+import Alert from '@src/page/AlertPage';
+import Home from '@src/page/HomePage';
+import Memo from '@src/page/MemoPage';
+import Photo from '@src/page/PhotoPage';
 
-import Component from '@src/lib/Component';
-import { constructorType } from '@src/lib/componentLibType';
+import Component, { constructorType } from '@src/lib/Component';
+
 import ErrorPage from '@src/Error';
 
 export type routeType = {

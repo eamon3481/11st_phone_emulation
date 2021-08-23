@@ -1,9 +1,8 @@
 import Component from '@src/lib/Component';
-import Header from '@src/components/header';
-import { HeaderPropsType } from '@src/type/componentPropsType';
-import PhotoSelector from '@src/components/photo-selector';
-import PhotoView from '@src/components/photo-view';
-import { PhotoItemType } from '@src/components/photo-selector/PhotoSelectorItem';
+
+import Header, { HeaderPropsType } from '@src/components/header/Header';
+import PhotoView from '@src/components/photo/PhotoView';
+import PhotoSelector from '@src/components/photo/PhotoSelectorList';
 
 export default class Photo extends Component {
   template() {
@@ -18,7 +17,7 @@ export default class Photo extends Component {
     )}
     ${this.setComponent<PhotoView>(
       { tagName: 'section', classNames: ['photoView'] },
-      PhotoView
+      PhotoView,
     )}
     `;
   }

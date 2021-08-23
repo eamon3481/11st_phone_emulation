@@ -1,7 +1,6 @@
 import routes, { routeType } from '@src/route';
 
-import Component from './Component';
-import { constructorType } from './componentLibType';
+import Component, { constructorType } from '@src/lib/Component';
 
 const routeKey = Object.keys(routes) as Array<keyof typeof routes>;
 

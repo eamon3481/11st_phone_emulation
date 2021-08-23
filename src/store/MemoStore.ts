@@ -4,7 +4,7 @@ export type MemoStateType = string[];
 
 const storageMemo = localStorage.getItem('Memo');
 
-export const memoState = initState<string[]>({
+export const memoState = initState<MemoStateType>({
   key: 'memoState',
   defaultValue: storageMemo ? JSON.parse(storageMemo) : [],
 });

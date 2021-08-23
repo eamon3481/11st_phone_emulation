@@ -1,8 +1,17 @@
 import { $, $all, createElement } from '../utils/util';
 import { subscribe } from './Observer';
 
+export  type constructorType<T, U> = {
+  new (createElementConfig: createElementType, $props: T): U;
+}
 
-import { createElementType, constructorType } from './componentLibType';
+export  type createElementType = {
+  tagName: keyof HTMLElementTagNameMap;
+  classNames?: string[];
+  value?: string;
+}
+
+
 
 export default class Component<T = void> {
   public $state: any;

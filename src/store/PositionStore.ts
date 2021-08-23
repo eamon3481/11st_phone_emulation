@@ -12,8 +12,10 @@ const defaultPositionValue = {
 };
 
 const storagePosition = localStorage.getItem('Position');
+
 if (!storagePosition)
   localStorage.setItem('Position', JSON.stringify(defaultPositionValue));
+
 export const positionState = initState<PositionStateType>({
   key: 'positionState',
   defaultValue: storagePosition

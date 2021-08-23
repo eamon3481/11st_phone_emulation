@@ -1,17 +1,11 @@
-import Component from '@src/lib/Component';
+import Component, { createElementType } from '@src/lib/Component';
 import { getState, setState } from '@src/lib/Observer';
-import { createElementType } from '@src/lib/componentLibType';
+
 import { positionState, PositionStateType } from '@src/store/PositionStore';
 
+import HomeAppItem, { HomeAppItemType } from './HomeAppItem';
 
-import AppButton from './AppButton';
-import {
-AppButtonProps
-} from '@src/type/componentPropsType';
-
-
-
-export default class HomePageBody extends Component {
+export default class HomeAppList extends Component {
   constructor(createElementConfig: createElementType) {
     super(createElementConfig);
 
@@ -22,6 +16,7 @@ export default class HomePageBody extends Component {
   setEvent() {
     const position = getState<PositionStateType>(positionState);
     const setPosition = setState<PositionStateType>(positionState);
+
     let dragged: { target: 'alert' | 'photo' | 'memo' };
     const textSwitch = (text: string): 'alert' | 'photo' | 'memo' =>
       text === '알람' ? 'alert' : text === '사진' ? 'photo' : 'memo';
@@ -79,23 +74,23 @@ export default class HomePageBody extends Component {
     return `${items
       .map((v, i) => {
         if (i === position.alert)
-          return this.setComponent<AppButton, AppButtonProps>(
+          return this.setComponent<HomeAppItem, HomeAppItemType>(
             { tagName: 'div', classNames: ['home_itemBox', `idx_${i}`] },
-            AppButton,
+            HomeAppItem,
             { text: '알람', route: '/alert' },
             0,
           );
         if (i === position.memo)
-          return this.setComponent<AppButton, AppButtonProps>(
+          return this.setComponent<HomeAppItem, HomeAppItemType>(
             { tagName: 'div', classNames: ['home_itemBox', `idx_${i}`] },
-            AppButton,
+            HomeAppItem,
             { text: '메모', route: '/memo' },
             1,
           );
         if (i === position.photo)
-          return this.setComponent<AppButton, AppButtonProps>(
+          return this.setComponent<HomeAppItem, HomeAppItemType>(
             { tagName: 'div', classNames: ['home_itemBox', `idx_${i}`] },
-            AppButton,
+            HomeAppItem,
             { text: '사진', route: '/photo' },
             2,
           );

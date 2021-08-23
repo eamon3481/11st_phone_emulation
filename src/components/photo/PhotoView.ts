@@ -1,8 +1,8 @@
-import Component from '@src/lib/Component';
+import Component, {  createElementType } from '@src/lib/Component';
 
 import { getState } from '@src/lib/Observer';
 import { imgState } from '@src/store/ImgUrlStore';
-import { createElementType } from '@src/type/componentPropsType';
+
 
 export default class PhotoView extends Component {
   constructor(createElementConfig: createElementType) {
@@ -11,8 +11,9 @@ export default class PhotoView extends Component {
     this.subscribe();
   }
   template() {
-    if (getState<string>(imgState))
-      return `<img class="photoView_img" src="${getState<string>(imgState)}"/>`;
+    const imgUrl = getState<string>(imgState)
+    if (imgUrl)
+      return `<img class="photoView_img" src="${imgUrl}"/>`;
     return '';
   }
 }

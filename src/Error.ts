@@ -4,7 +4,6 @@ import { $ } from './utils/util';
 
 export default class ErrorPage extends Component {
   setEvent() {
-    console.log(this.$target);
     this.addEvent('click', '.home', (evt: MouseEvent) => {
       const app = $('#app');
 

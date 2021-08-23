@@ -1,8 +1,8 @@
 import Component from '@src/lib/Component';
-import Header from '@src/components/header';
-import { HeaderPropsType } from '@src/type/componentPropsType';
-import MemoInput from '@src/components/inputs/MemoInput';
-import MemoList from '@src/components/memo-list';
+
+import Header, { HeaderPropsType } from '@src/components/header/Header';
+import MemoInput from '@src/components/memo/MemoInput';
+import MemoList from '@src/components/memo/MemoList';
 
 export default class Memo extends Component {
   template() {

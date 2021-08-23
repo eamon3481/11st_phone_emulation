@@ -1,13 +1,11 @@
-import Component from '@src/lib/Component';
-import { createElementType } from '@src/lib/componentLibType';
+import Component, { createElementType } from '@src/lib/Component';
 
 import { getState, setState } from '@src/lib/Observer';
 import { memoState, MemoStateType } from '@src/store/MemoStore';
 
 import { $ } from '@src/utils/util';
 
-import { InputType } from '@src/type/componentPropsType';
-
+import { InputType } from '@src/components/header/Header';
 
 export default class MemoInput extends Component<InputType> {
   constructor(createElementConfig: createElementType, $props: InputType) {
@@ -20,16 +18,24 @@ export default class MemoInput extends Component<InputType> {
   setEvent() {
     const setTimes = setState<MemoStateType>(memoState);
 
-    const handleSubmit = (e: KeyboardEvent | MouseEvent ) => {
-      if((e as KeyboardEvent ).key !== "Enter" && (e as KeyboardEvent ).key !== undefined) return
+    const handleSubmit = (e: KeyboardEvent | MouseEvent) => {
+      if (
+        (e as KeyboardEvent).key !== 'Enter' &&
+        (e as KeyboardEvent).key !== undefined
+      )
+        return;
+
       const memos = getState<MemoStateType>(memoState);
       const value = ($('.memo_input', this.$target) as HTMLInputElement).value;
-      if(value === ""){
-        window.alert("메모를 입력해주세요")
-        throw new Error("메모를 입력해주세요") 
+
+      if (value === '') {
+        window.alert('메모를 입력해주세요');
+        throw new Error('메모를 입력해주세요');
       }
+
       setTimes([...memos, value]);
       localStorage.setItem('Memo', JSON.stringify([...memos, value]));
+      
       this.$props.setToggle({ toggle: false });
     };
 

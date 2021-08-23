@@ -1,7 +1,10 @@
-import Component from '@src/lib/Component';
+import Component ,{ createElementType } from '@src/lib/Component';
+
+
 import { getState, setState } from '@src/lib/Observer';
+
 import { imgState } from '@src/store/ImgUrlStore';
-import { createElementType } from '@src/type/componentPropsType';
+
 
 export type PhotoItemType = {
   imgUrl: string;

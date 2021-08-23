@@ -1,11 +1,23 @@
-import Component from '@src/lib/Component';
 import { $ } from '@src/utils/util';
-import {
-  createElementType,
-  HeaderPropsType,
-} from '@src/type/componentPropsType';
+
 import { historyRouterPush } from '@src/lib/router';
+
+import Component, { createElementType, constructorType } from '@src/lib/Component';
+
 import HeaderTimer from './HeaderTimer';
+
+
+export type InputType = {
+  setToggle: (newState: any) => void;
+};
+
+
+export type HeaderPropsType<T = any> = {
+  isApp: Boolean;
+  input?: constructorType<InputType, T>;
+};
+
+
 
 export default class Header extends Component<HeaderPropsType> {
   isApp: Boolean;
@@ -16,7 +28,9 @@ export default class Header extends Component<HeaderPropsType> {
   }
   setup() {
     const handleBackClick = (e: MouseEvent) => {
-      historyRouterPush('/', $('#app'));
+      const app = $('#app')
+       if(!app) throw new Error("App tag가 없습니다") 
+       historyRouterPush('/', app);
     };
 
     const handleNewClick = (e: MouseEvent) => {
