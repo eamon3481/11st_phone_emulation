@@ -45,11 +45,15 @@ export default class HomePageBody extends Component {
       if (!_target) return;
 
       const idx = _target.classList[1];
-      if (target.classList[0] === 'AppButton') {
-        position[textSwitch(target.innerText)] = position[dragged.target];
+      console.log(target.classList[0])
+      if (target.classList[0] !== 'home_itemBox') {
+        let temp = position[dragged.target];
+        position[dragged.target] = position[textSwitch(target.innerText)];
+        position[textSwitch(target.innerText)] = temp;
+      } else {
+        console.log(target, +idx.slice(4));
+        position[dragged.target] = +idx.slice(4);
       }
-
-      position[dragged.target] = +idx.slice(4);
 
       localStorage.setItem('Position', JSON.stringify(position));
       setPosition(position);

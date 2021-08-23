@@ -1,8 +1,9 @@
 .home_main {
-  padding: 10px, 10px;
+  grid-template-columns: repeat(4, 1fr);
   display: grid;
-  grid: '. . . .';
+  height: 90%;
 }
+
 
 .AppButton {
   display: flex;
