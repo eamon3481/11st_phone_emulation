@@ -13,7 +13,6 @@ const routes = {
 // entry point
 export function initialRoutes(el) {
   renderHTML(el, routes['/']);
-  console.log(window);
   window.onpopstate = (e) => {
     return renderHTML(el, routes[window.location.pathname]);
   };
