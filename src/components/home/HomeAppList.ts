@@ -4,10 +4,11 @@ import { getState, setState } from '@src/lib/Observer';
 import { positionState, PositionStateType } from '@src/store/PositionStore';
 
 import HomeAppItem, { HomeAppItemType } from './HomeAppItem';
+type ComponentProps = [createElementType]
 
 export default class HomeAppList extends Component {
-  constructor(createElementConfig: createElementType) {
-    super(createElementConfig);
+  constructor(...args : ComponentProps) {
+    super(...args);
 
     this.keys = [positionState];
     this.subscribe();

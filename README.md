@@ -64,7 +64,7 @@ $npm test  //  webpack
 └─test
 ```
 
-![11st (1)](https://user-images.githubusercontent.com/68339352/130448588-4474e219-b3f6-4dd4-adb1-31245c05e20f.png)
+![11st (2)](https://user-images.githubusercontent.com/68339352/131609152-c2755d0e-620c-433d-b412-5154ea514df1.png)
 
 ## 🚴Feature List
 

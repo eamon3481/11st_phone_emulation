@@ -6,6 +6,7 @@ import AlertInput from '@src/components/alert/AlertInput';
 
 export default class Alert extends Component {
   template() {
+ 
     return `${this.setComponent<Header, HeaderPropsType<AlertInput>>(
       { tagName: 'header' },
       Header,

@@ -1,17 +1,15 @@
 import { $, $all, createElement } from '../utils/util';
-import { subscribe } from './Observer';
+import { subscribe, unsubscribe } from './Observer';
 
-export  type constructorType<T, U> = {
+export type constructorType<T, U> = {
   new (createElementConfig: createElementType, $props: T): U;
-}
+};
 
-export  type createElementType = {
+export type createElementType = {
   tagName: keyof HTMLElementTagNameMap;
   classNames?: string[];
   value?: string;
-}
-
-
+};
 
 export default class Component<T = void> {
   public $state: any;
@@ -38,10 +36,8 @@ export default class Component<T = void> {
   }
 
   subscribe() {
-    this.keys.forEach((key) => subscribe(key, this.render.bind(this)));
+    this.keys.forEach((key) => subscribe(key, this.reRender.bind(this)));
   }
-
-
 
   setup() {}
   mounted() {}
@@ -98,6 +94,11 @@ export default class Component<T = void> {
 
   setEvent() {}
 
+  reRender() {
+    this.render();
+    this.unsubscribe();
+  }
+
   addEvent<K extends keyof HTMLElementEventMap>(
     eventType: K,
     selector: string,
@@ -118,5 +119,11 @@ export default class Component<T = void> {
   protected setState(newState: any) {
     this.$state = { ...this.$state, ...newState };
     this.render();
+  }
+
+  unsubscribe(isCurrentComp = true): void {
+    if (!isCurrentComp && this.keys.length) {
+      this.keys.forEach((key) => unsubscribe(key, this.reRender));
+    }
   }
 }

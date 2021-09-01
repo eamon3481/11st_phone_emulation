@@ -21,6 +21,7 @@ export default class AlertItem extends Component<AlertItemType> {
     this.addEvent('click', '.alert_item_delete', handleDeleteBtn);
   }
   template() {
+    console.log('hh');
     return `<div>${this.$props.time}</div>
     <button class="alert_item_delete">삭제</button>`;
   }
